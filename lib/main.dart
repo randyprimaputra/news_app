@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/constants/palette.dart';
 import 'package:news_app/pages/home_page.dart';
 
 void main() => runApp(const MyApp());
@@ -11,7 +12,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'News App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+          primarySwatch: Colors.blue,
+          colorScheme: const ColorScheme.light().copyWith(
+            secondary: Palette.deepBlue,
+          ),
+          fontFamily: 'Poppins'),
       home: const HomePage(),
     );
   }
