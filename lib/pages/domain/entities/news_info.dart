@@ -1,5 +1,8 @@
 class NewsInfo {
-  final String? title, author, imageURL, content;
+  final String? title;
+  final String? author;
+  final String? imageURL;
+  final String? content;
   final String dateTime;
 
   const NewsInfo({
