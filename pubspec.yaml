@@ -31,6 +31,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get_it: ^7.2.0
+  dartz: ^0.10.1
+  http: ^0.13.5
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  intl: ^0.18.0
+  dio: ^4.0.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -75,10 +82,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+          weight: 700
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
