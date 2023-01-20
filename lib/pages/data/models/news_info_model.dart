@@ -12,7 +12,7 @@ class NewsInfoModel extends NewsInfo {
           author: author,
           imageURL: imageURL,
           content: content,
-          dateTime: _getDateTimeInDateTime(dateTime).toString(),
+          dateTime: _getDateTimeInDateTime(dateTime),
         );
 
   static DateTime _getDateTimeInDateTime(String? dateTime) {

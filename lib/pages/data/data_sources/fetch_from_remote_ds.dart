@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:news_app/core/constants/strings.dart';
 import 'package:news_app/core/failures_successes/exceptions.dart';
 import 'package:news_app/core/services/api_service.dart';
@@ -38,6 +39,9 @@ class FetchFromRemoteDSImpl implements FetchFromRemoteDS {
 
       return news;
     } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
       throw const FetchException(message: 'Failed to get data');
     }
   }

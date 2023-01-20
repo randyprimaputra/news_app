@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/constants/palette.dart';
+import 'package:news_app/pages/domain/entities/news_info.dart';
 import 'package:news_app/pages/news_view_page.dart';
 
 class NewsCard extends StatelessWidget {
-  const NewsCard({super.key});
+  final NewsInfo newsInfo;
+  const NewsCard({Key? key, required this.newsInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,9 @@ class NewsCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const NewsViewPage();
+              return NewsViewPage(
+                newsInfo: newsInfo,
+              );
             },
           ),
         );
@@ -27,10 +31,12 @@ class NewsCard extends StatelessWidget {
             Container(
               height: 260,
               color: Palette.lightGrey,
-              child: Image.network(
-                'https://akcdn.detik.net.id/community/media/visual/2023/01/16/arsenal-3_169.jpeg?w=700&q=90',
-                fit: BoxFit.cover,
-              ),
+              child: newsInfo.imageURL != null
+                  ? Image.network(
+                      newsInfo.imageURL!,
+                      fit: BoxFit.cover,
+                    )
+                  : const SizedBox(),
             ),
             Positioned(
               left: 16,
@@ -48,13 +54,15 @@ class NewsCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
                   child: Center(
                     child: Text(
-                      '''Ngerinya Arsenal dan 'Ramalan' Mourinho yang Jadi Nyata Baca artikel sepakbola, "Ngerinya Arsenal dan 'Ramalan' Mourinho yang Jadi Nyata" ''',
+                      newsInfo.title != null
+                          ? newsInfo.title!
+                          : ' -- No title -- ',
                       maxLines: 2,
-                      style: TextStyle(
+                      style: const TextStyle(
                           overflow: TextOverflow.ellipsis,
                           color: Palette.deepBlue,
                           fontSize: 18,
